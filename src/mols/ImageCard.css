@@ -1,0 +1,9 @@
+.image-box {
+    width: 150px;
+}
+
+.link-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
