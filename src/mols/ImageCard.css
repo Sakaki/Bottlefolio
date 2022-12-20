@@ -1,9 +1,5 @@
-.image-box {
-    width: 150px;
-}
-
-.link-button {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+.card {
+    width: 300px;
+    margin-top: 0;
+    display: inline-block;
 }

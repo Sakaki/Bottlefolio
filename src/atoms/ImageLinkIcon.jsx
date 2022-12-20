@@ -21,4 +21,5 @@ Image.propTypes = {
 Image.defaultProps = {
     url: 'https://twitter.com/Sakaki333/status/1599055861573353472',
     iconType: PixivIcon,
+    alt: 'pixiv',
 };

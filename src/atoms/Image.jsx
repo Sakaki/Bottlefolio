@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image as AntImage } from 'antd';
+import {Image as AntImage} from 'antd';
 
-export const Image = ({ imageUrl, ...props }) => {
+export const Image = ({imageUrl}) => {
     return (
-        <AntImage src={imageUrl}>Primary Button</AntImage>
+        <AntImage src={imageUrl}/>
     );
 };
 
