@@ -1,11 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Image as AntImage} from 'antd';
+import PropTypes from "prop-types";
 
 export const Image = ({imageUrl}) => {
     return (
-        <AntImage src={imageUrl}/>
-    );
+        <>
+            <AntImage
+                width={'100%'}
+                src={imageUrl}
+            />
+        </>
+    )
 };
 
 Image.propTypes = {

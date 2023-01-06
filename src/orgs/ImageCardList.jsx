@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {ImageCard} from "../mols/ImageCard";
-import styles from './ImageCardList.css'
+import {Image} from 'antd';
 
 export const ImageCardList = ({cards}) => {
     return (
         <>
-            {cards.map((item, index) => (
-                <ImageCard
-                    imageUrl={item.imageUrl}
-                    pixivUrl={item.pixivUrl}
-                    twitterUrl={item.twitterUrl}
-                    key={index.toString()}
-                />
-            ))}
+            <Image.PreviewGroup>
+                {cards.map((item, index) => (
+                    <ImageCard
+                        imageUrl={item.imageUrl}
+                        pixivUrl={item.pixivUrl}
+                        twitterUrl={item.twitterUrl}
+                        key={index.toString()}
+                    />
+                ))}
+            </Image.PreviewGroup>
         </>
     );
 };

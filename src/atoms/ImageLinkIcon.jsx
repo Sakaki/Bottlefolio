@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Image} from "./Image";
+import {Thumbnail} from "./Thumbnail";
 import PixivIcon from "../assets/icon/pixiv_icon.svg";
 import {Button} from "antd";
 
@@ -12,13 +12,13 @@ export const ImageLinkIcon = ({url, svgIcon, alt}) => {
     );
 };
 
-Image.propTypes = {
+Thumbnail.propTypes = {
     url: PropTypes.string,
     svgIcon: PropTypes.element,
     alt: PropTypes.string,
 };
 
-Image.defaultProps = {
+Thumbnail.defaultProps = {
     url: 'https://twitter.com/Sakaki333/status/1599055861573353472',
     iconType: PixivIcon,
     alt: 'pixiv',

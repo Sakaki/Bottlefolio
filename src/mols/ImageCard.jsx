@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Image} from "../atoms/Image";
+import {Thumbnail} from "../atoms/Thumbnail";
 import {ImageLinkIcon} from "../atoms/ImageLinkIcon";
-import {Card} from "antd";
+import {Avatar, Card} from "antd";
 import PixivIcon from '../assets/icon/pixiv_icon.svg'
 import TwitterIcon from '../assets/icon/twitter_icon.svg'
+import Meta from "antd/es/card/Meta";
 
 export const ImageCard = ({twitterUrl, pixivUrl, imageUrl}) => {
     return (
@@ -23,9 +24,16 @@ export const ImageCard = ({twitterUrl, pixivUrl, imageUrl}) => {
                     alt={'Pixiv'}
                 />
             ]}
-            cover={<Image imageUrl={imageUrl}/>}
-            bodyStyle={{padding: "0"}}
-        />
+
+            cover={<Thumbnail imageUrl={imageUrl}/>}
+
+        >
+            <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                title="Card title"
+                description="This is the description"
+            />
+        </Card>
     );
 };
 
