@@ -8,7 +8,7 @@ import {LinkIcons} from "../mols/LinkIcons";
 export const ImageViewArea = ({item}) => {
     return (
         <>
-            <Image/>
+            <Image imageUrl={item.imageUrl}/>
             <Title/>
             <Description/>
             <LinkIcons

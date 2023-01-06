@@ -5,8 +5,8 @@ export const Thumbnail = ({imageUrl}) => {
     return (
         <>
             <img src={imageUrl} style={{
-                width: '500px',
-                height: '500px',
+                width: '300px',
+                height: '300px',
                 objectFit: 'cover',
                 objectPosition: '0 5%',
             }} alt={'test'}/>
