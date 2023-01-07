@@ -7,7 +7,7 @@ const MainTitle = styled.span({
 });
 
 const SubTitle = styled.span({
-    fontSize: '70%',
+    fontSize: '85%',
     marginLeft: 3
 })
 
@@ -22,9 +22,9 @@ export const Title = ({}) => {
         <>
             <Row wrap={false}>
                 <Col flex="none">
-                    <ImageAvatar/>
+                    <ImageAvatar size={40}/>
                 </Col>
-                <Col flex="auto">
+                <Col flex="auto" style={{paddingLeft: 10}}>
                     <MainTitle>Title</MainTitle><br/>
                     <SubTitle>subtitle</SubTitle>
                 </Col>

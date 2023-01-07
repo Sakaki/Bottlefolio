@@ -37,7 +37,6 @@ export const ThumbnailList = ({items}) => {
                 onClose={onClose}
                 open={open}
                 height={'100%'}
-                style={{maxWidth: 600}}
             >
                 <ImageViewArea item={items[imageIndex]}/>
             </Drawer>

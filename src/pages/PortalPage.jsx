@@ -1,13 +1,19 @@
 import React from 'react';
 import {Header} from "../mols/Header";
 import {Profile} from "../orgs/Profile";
-import {ThumbnailList} from "../orgs/ThumbnailList";
 import styled from 'styled-components';
 import {Divider} from "antd";
+import {ImageCardList} from "../orgs/ImageCardList";
 
 const Container = styled.div({
     maxWidth: '600px',
     margin: 'auto'
+})
+
+const Works = styled.div({
+    paddingTop: 40,
+    width: '80%',
+    margin: 'auto',
 })
 
 export const PortalPage = ({items}) => {
@@ -19,7 +25,9 @@ export const PortalPage = ({items}) => {
                 <Divider orientation="left" orientationMargin="0">
                     Illustrations
                 </Divider>
-                <ThumbnailList items={items}/>
+                <Works>
+                    <ImageCardList items={items}/>
+                </Works>
             </Container>
         </>
     )

@@ -6,12 +6,17 @@ import {Avatar, Card} from "antd";
 import PixivIcon from '../assets/icon/pixiv_icon.svg'
 import TwitterIcon from '../assets/icon/twitter_icon.svg'
 import Meta from "antd/es/card/Meta";
+import styled from "styled-components";
+
+const ImageCardItem = styled(Card)`
+  margin: auto;
+  max-width: 550px;
+`
 
 export const ImageCard = ({twitterUrl, pixivUrl, imageUrl}) => {
     return (
-        <Card
+        <ImageCardItem
             hoverable
-            style={{width: 300, margin: 5, display: 'inline-block'}}
             actions={[
                 <ImageLinkIcon
                     svgIcon={TwitterIcon}
@@ -24,16 +29,14 @@ export const ImageCard = ({twitterUrl, pixivUrl, imageUrl}) => {
                     alt={'Pixiv'}
                 />
             ]}
-
             cover={<Thumbnail imageUrl={imageUrl}/>}
-
         >
             <Meta
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random"/>}
                 title="Card title"
                 description="This is the description"
             />
-        </Card>
+        </ImageCardItem>
     );
 };
 

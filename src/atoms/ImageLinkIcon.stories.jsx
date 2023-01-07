@@ -14,12 +14,12 @@ export const TwitterIconSample = Template.bind({});
 TwitterIconSample.args = {
     url: 'https://twitter.com/Sakaki333/status/1599055861573353472',
     svgIcon: TwitterIcon,
-    alt: 'Twitter'
+    alt: 'Twitter',
 };
 
 export const PixivIconSample = Template.bind({});
 PixivIconSample.args = {
     url: 'https://www.pixiv.net/users/52366365',
     svgIcon: PixivIcon,
-    alt: 'Pixiv'
+    alt: 'Pixiv',
 }
