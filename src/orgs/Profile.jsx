@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Avatar, Col, Row} from "antd";
+import {Avatar, Space} from "antd";
 import {HomeOutlined, TwitterOutlined} from "@ant-design/icons";
 
 const UserName = styled.p({
@@ -15,25 +15,22 @@ const Description = styled.p({
     color: 'darkgray',
 });
 
-const LinkCol = styled(Col)`
-  margin: 0 10px;
-`
+const LinkContainer = styled.div({
+    textAlign: 'center',
+})
 
 export const Profile = ({}) => {
     return (
         <>
             <UserName>サカキ</UserName>
-            <Row justify="center">
-                <LinkCol>
-                    <Avatar size='small' style={{backgroundColor: '#f56a00'}} icon={<HomeOutlined/>} /> Home
-                </LinkCol>
-                <LinkCol>
-                    <Avatar size='small' style={{backgroundColor: '#7265e6'}} icon={<TwitterOutlined />} /> Twitter
-                </LinkCol>
-                <LinkCol>
+            <LinkContainer>
+                <Space>
+                    <Avatar size='small' style={{backgroundColor: '#f56a00'}} icon={<HomeOutlined/>}/> Blog
+                    <Avatar size='small' style={{backgroundColor: '#7265e6'}} icon={<TwitterOutlined/>}/> Twitter
                     <Avatar size='small' style={{backgroundColor: '#ffbf00'}}>P</Avatar> Pixiv
-                </LinkCol>
-            </Row>
+                    <Avatar size='small' style={{backgroundColor: '#00a2ae'}}>S</Avatar> Skeb
+                </Space>
+            </LinkContainer>
             <Description>
                 イラストを描くプログラマーです。<br/>
                 ご依頼はPixivかSkebでお願いします。
