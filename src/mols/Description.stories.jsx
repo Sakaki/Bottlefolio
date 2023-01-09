@@ -9,3 +9,6 @@ export default {
 const Template = (args) => <Description {...args} />;
 
 export const Example1 = Template.bind({});
+Example1.args = {
+    text: 'テストです！\nよろしくお願いします！！',
+};

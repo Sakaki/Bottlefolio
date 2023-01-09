@@ -4,7 +4,7 @@ import {ImageCard} from "../mols/ImageCard";
 import {Drawer, Space} from 'antd';
 import {ImageViewArea} from "./ImageViewArea";
 
-export const ImageCardList = ({items}) => {
+export const ImageCardList = ({imageInfos}) => {
     const [open, setOpen] = useState(false);
     const [imageIndex, setImageIndex] = useState(0);
 
@@ -25,28 +25,27 @@ export const ImageCardList = ({items}) => {
     return (
         <>
             <Space direction="vertical" size="large" style={{display: 'flex'}}>
-                {items.map((item, index) => (
+                {imageInfos.map((item, index) => (
                     <div onClick={() => showDrawer(index)} key={index.toString()}>
                         <ImageCard
-                            imageUrl={item.imageUrl}
-                            pixivUrl={item.pixivUrl}
-                            twitterUrl={item.twitterUrl}
+                            imageInfo={item}
                         />
                     </div>
                 ))}
             </Space>
             <Drawer
-                title='image'
+                title={imageInfos[imageIndex].title}
                 placement='bottom'
                 onClose={onClose}
                 open={open}
                 height={'100%'}
             >
                 <ImageViewArea
-                    item={items[imageIndex]}
+                    imageInfo={imageInfos[imageIndex]}
                     currentIndex={imageIndex + 1}
-                    size={items.length}
+                    size={imageInfos.length}
                     onChange={changeImageByPagination}
+                    description={imageInfos[imageIndex].description}
                 />
             </Drawer>
         </>
@@ -54,20 +53,36 @@ export const ImageCardList = ({items}) => {
 };
 
 ImageCardList.propTypes = {
-    items: PropTypes.array,
+    imageInfos: PropTypes.array,
 }
 
 ImageCardList.defaultProps = {
-    items: [
+    imageInfos: [
         {
+            link: {
+                twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
+                pixivUrl: 'https://www.pixiv.net/users/52366365',
+            },
             imageUrl: 'https://blog.sakaki333.com/media/images/22/12/11/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%886.png',
-            twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-            pixivUrl: 'https://www.pixiv.net/users/52366365',
+            title: 'タイトル1',
+            subtitle: 'サブタイトル2',
+            description: 'テスト1です！\nよろしくお願いします！！',
+            props: {
+                iconColor: 'pink',
+            },
         },
         {
+            link: {
+                twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
+                pixivUrl: 'https://www.pixiv.net/users/52366365',
+            },
             imageUrl: 'https://blog.sakaki333.com/media/images/22/12/13/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%884.png',
-            twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-            pixivUrl: 'https://www.pixiv.net/users/52366365',
+            title: 'タイトル2',
+            subtitle: 'サブタイトル2',
+            description: 'テスト2です！\nよろしく\nお願いします！！',
+            props: {
+                iconColor: 'orange',
+            },
         },
     ]
 }

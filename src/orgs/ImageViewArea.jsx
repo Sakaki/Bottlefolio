@@ -13,7 +13,7 @@ const DetailContainer = styled(Space)`
   margin: auto;
 `
 
-export const ImageViewArea = ({item, size, currentIndex, onChange}) => {
+export const ImageViewArea = ({imageInfo, size, currentIndex, onChange, description}) => {
     return (
         <>
             <DetailContainer direction="vertical" size="middle">
@@ -26,12 +26,12 @@ export const ImageViewArea = ({item, size, currentIndex, onChange}) => {
                         pageSize={1}
                     />
                 </div>
-                <Image imageUrl={item.imageUrl}/>
-                <Title/>
-                <Description/>
+                <Image imageUrl={imageInfo.imageUrl}/>
+                <Title title={imageInfo.title} subtitle={imageInfo.subtitle} iconColor={imageInfo.props.iconColor}/>
+                <Description text={description}/>
                 <LinkIcons
-                    pixivUrl={item.pixivUrl}
-                    twitterUrl={item.twitterUrl}
+                    pixivUrl={imageInfo.link.pixivUrl}
+                    twitterUrl={imageInfo.link.twitterUrl}
                 />
             </DetailContainer>
         </>
@@ -39,20 +39,31 @@ export const ImageViewArea = ({item, size, currentIndex, onChange}) => {
 };
 
 ImageViewArea.propTypes = {
-    item: PropTypes.object,
+    imageInfo: PropTypes.object,
     size: PropTypes.number,
     currentIndex: PropTypes.number,
     onChange: PropTypes.func,
+    description: PropTypes.string,
 }
 
 ImageViewArea.defaultProps = {
-    item: {
-        twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-        pixivUrl: 'https://www.pixiv.net/users/52366365',
+    imageInfo: {
+        link: {
+            twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
+            pixivUrl: 'https://www.pixiv.net/users/52366365',
+        },
+        imageUrl: 'https://blog.sakaki333.com/media/images/22/12/11/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%886.png',
+        title: 'タイトル1',
+        subtitle: 'サブタイトル2',
+        description: 'テスト1です！\nよろしくお願いします！！',
+        props: {
+            iconColor: 'pink',
+        },
     },
     size: 10,
     currentIndex: 1,
     onChange: () => {
-        console.log('dummy')
-    }
+        console.log('dummy');
+    },
+    description: 'テストです！\nよろしくお願いします！！',
 }

@@ -9,3 +9,8 @@ export default {
 const Template = (args) => <Title {...args} />;
 
 export const Example1 = Template.bind({});
+Example1.args = {
+    title: 'タイトル',
+    subtitle: 'サブタイトル',
+    iconColor: 'pink',
+}

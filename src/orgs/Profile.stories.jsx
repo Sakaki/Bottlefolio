@@ -9,3 +9,16 @@ export default {
 const Template = (args) => <Profile {...args} />;
 
 export const Example1 = Template.bind({});
+Example1.args = {
+    userInfo: {
+        name: 'ユーザー',
+        description: 'テスト説明です。\n改行することもできます！',
+        links: {
+            blog: '#',
+            twitter: '#',
+            pixiv: '#',
+            skeb: '#',
+            gitHub: '#',
+        }
+    }
+}

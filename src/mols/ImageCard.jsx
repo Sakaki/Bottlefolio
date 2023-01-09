@@ -13,41 +13,48 @@ const ImageCardItem = styled(Card)`
   max-width: 550px;
 `
 
-export const ImageCard = ({twitterUrl, pixivUrl, imageUrl}) => {
+export const ImageCard = ({imageInfo}) => {
     return (
         <ImageCardItem
             hoverable
             actions={[
                 <ImageLinkIcon
                     svgIcon={TwitterIcon}
-                    url={twitterUrl}
+                    url={imageInfo.link.twitterUrl}
                     alt={'Twitter'}
                 />,
                 <ImageLinkIcon
                     svgIcon={PixivIcon}
-                    url={pixivUrl}
+                    url={imageInfo.link.pixivUrl}
                     alt={'Pixiv'}
                 />
             ]}
-            cover={<Thumbnail imageUrl={imageUrl}/>}
+            cover={<Thumbnail imageUrl={imageInfo.imageUrl}/>}
         >
             <Meta
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random"/>}
-                title="Card title"
-                description="This is the description"
+                avatar={<Avatar style={{backgroundColor: imageInfo.props.iconColor}}/>}
+                title={imageInfo.title}
+                description={imageInfo.subtitle}
             />
         </ImageCardItem>
     );
 };
 
 ImageCard.propTypes = {
-    imageUrl: PropTypes.string,
-    twitterUrl: PropTypes.string,
-    pixivUrl: PropTypes.string,
+    imageInfo: PropTypes.object,
 };
 
 ImageCard.defaultProps = {
-    twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-    pixivUrl: 'https://www.pixiv.net/users/52366365',
-    imageUrl: 'https://blog.sakaki333.com/media/images/22/12/11/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%886.png',
+    imageInfo: {
+        link: {
+            twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
+            pixivUrl: 'https://www.pixiv.net/users/52366365',
+        },
+        imageUrl: 'https://blog.sakaki333.com/media/images/22/12/11/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%886.png',
+        title: 'タイトル',
+        subtitle: 'サブタイトル',
+        props: {
+            iconColor: 'pink',
+        },
+    },
 };

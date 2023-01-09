@@ -1,6 +1,7 @@
 import React from 'react';
 import {Avatar, Col, Row} from 'antd';
 import styled from 'styled-components';
+import PropTypes from "prop-types";
 
 const MainTitle = styled.span({
     fontSize: '130%',
@@ -12,23 +13,34 @@ const SubTitle = styled.span({
 })
 
 const ImageAvatar = styled(Avatar)`
-  background-color: pink;
   vertical-align: middle;
   margin: 3px 10px 0 0;
 `;
 
-export const Title = ({}) => {
+export const Title = ({title, subtitle, iconColor}) => {
     return (
         <>
             <Row wrap={false}>
                 <Col flex="none">
-                    <ImageAvatar size={40}/>
+                    <ImageAvatar style={{backgroundColor: iconColor}} size={40}/>
                 </Col>
                 <Col flex="auto" style={{paddingLeft: 10}}>
-                    <MainTitle>Title</MainTitle><br/>
-                    <SubTitle>subtitle</SubTitle>
+                    <MainTitle>{title}</MainTitle><br/>
+                    <SubTitle>{subtitle}</SubTitle>
                 </Col>
             </Row>
         </>
     )
 }
+
+Title.propTypes = {
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    iconColor: PropTypes.string,
+};
+
+Title.defaultProps = {
+    title: 'タイトル',
+    subtitle: 'サブタイトル',
+    iconColor: 'pink',
+};
