@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const HeaderDiv = styled.div({
     width: '100%',
     height: '400px',
+    maxHeight: '45vh',
     position: 'relative',
     borderBottom: '1px solid',
     borderColor: 'lightgray',

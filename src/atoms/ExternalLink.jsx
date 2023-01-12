@@ -9,6 +9,8 @@ const LinkWithoutDecoration = styled.a({
 
 const LinkText = styled.span({
     color: 'black',
+    fontSize: '115%',
+    lineHeight: '115%',
 })
 
 export const ExternalLink = ({url, backgroundColor, icon, iconChar, text}) => {
