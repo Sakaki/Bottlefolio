@@ -28,7 +28,7 @@ Thumbnail.propTypes = {
 };
 
 Thumbnail.defaultProps = {
-    url: 'https://twitter.com/Sakaki333/status/1599055861573353472',
+    url: '#',
     iconType: PixivIcon,
     alt: 'pixiv',
 };

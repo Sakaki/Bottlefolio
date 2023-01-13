@@ -44,6 +44,6 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-    backgroundUrl: 'https://cdn.vuetifyjs.com/images/parallax/material.jpg',
-    iconUrl: 'https://blog.sakaki333.com/media/images/23/01/07/-pjp6ww.jpg',
+    backgroundUrl: 'https://via.placeholder.com/720x1280',
+    iconUrl: 'https://via.placeholder.com/128/f0f8ff',
 };

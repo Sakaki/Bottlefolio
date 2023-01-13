@@ -62,3 +62,13 @@ export const ExternalLinks = ({links}) => {
 ExternalLinks.propTypes = {
     userInfo: PropTypes.object,
 }
+
+ExternalLinks.defaultProps = {
+    links: {
+        blog: '#',
+        twitter: '#',
+        pixiv: '#',
+        skeb: '#',
+        gitHub: '#',
+    }
+};

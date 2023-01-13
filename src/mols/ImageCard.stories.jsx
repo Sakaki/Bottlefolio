@@ -13,14 +13,14 @@ export const Example1 = Template.bind({});
 Example1.args = {
     imageInfo: {
         link: {
-            twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-            pixivUrl: 'https://www.pixiv.net/users/52366365',
+            twitterUrl: '#',
+            pixivUrl: '#',
         },
         imageUrls: {
-            completed: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.jpg',
-            rough: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101r.jpg',
-            line: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101l.jpg',
-            timeLapse: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.gif'
+            completed: 'https://via.placeholder.com/720x1280',
+            rough: '',
+            line: '',
+            timeLapse: ''
         },
         title: 'タイトル',
         subtitle: 'サブタイトル',

@@ -41,7 +41,7 @@ ExternalLink.propTypes = {
 }
 
 ExternalLink.defaultProps = {
-    url: 'https://blog.sakaki333.com',
+    url: '#',
     backgroundColor: '#f56a00',
     icon: undefined,
     iconChar: '',

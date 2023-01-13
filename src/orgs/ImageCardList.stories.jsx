@@ -13,14 +13,14 @@ Example1.args = {
     imageInfos: [
         {
             link: {
-                twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-                pixivUrl: 'https://www.pixiv.net/users/52366365',
+                twitterUrl: '#',
+                pixivUrl: '#',
             },
             imageUrls: {
-                completed: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.jpg',
-                rough: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101r.jpg',
-                line: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101l.jpg',
-                timeLapse: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.gif'
+                completed: 'https://via.placeholder.com/720x1280',
+                rough: 'https://via.placeholder.com/720x1280',
+                line: 'https://via.placeholder.com/720x1280',
+                timeLapse: 'https://via.placeholder.com/720x1280'
             },
             title: 'タイトル1',
             subtitle: 'サブタイトル2',
@@ -31,11 +31,11 @@ Example1.args = {
         },
         {
             link: {
-                twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
-                pixivUrl: 'https://www.pixiv.net/users/52366365',
+                twitterUrl: '#',
+                pixivUrl: '#',
             },
             imageUrls: {
-                completed: 'https://blog.sakaki333.com/media/images/22/12/13/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%884.png',
+                completed: 'https://via.placeholder.com/720x1280',
                 rough: '',
                 line: '',
                 timeLapse: ''

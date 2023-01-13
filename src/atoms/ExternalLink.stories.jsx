@@ -11,7 +11,7 @@ const Template = (args) => <ExternalLink {...args} />;
 
 export const Example1 = Template.bind({});
 Example1.args = {
-    url: 'https://blog.sakaki333.com',
+    url: '#',
     backgroundColor: '#f56a00',
     icon: undefined,
     iconChar: 'U',
@@ -20,9 +20,9 @@ Example1.args = {
 
 export const Example2 = Template.bind({});
 Example2.args = {
-    url: 'https://blog.sakaki333.com',
+    url: '#',
     backgroundColor: '#f56a00',
     icon: <HomeOutlined/>,
     iconChar: '',
-    text: 'Blog'
+    text: 'Home'
 }

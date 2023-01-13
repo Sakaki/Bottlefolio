@@ -3,8 +3,8 @@ import {PortalPage} from "./pages/PortalPage";
 import {Helmet} from "react-helmet";
 
 const DefaultUserInfo = {
-    name: 'ユーザー名',
-    description: 'ユーザー説明',
+    name: 'Loading...',
+    description: 'Loading...',
     links: {
         blog: '#',
         twitter: '#',
@@ -13,34 +13,28 @@ const DefaultUserInfo = {
         gitHub: '#',
     },
     header: {
-        iconUrl: 'https://blog.sakaki333.com/media/images/23/01/07/-pjp6ww.jpg',
-        backgroundUrl: 'https://cdn.vuetifyjs.com/images/parallax/material.jpg',
-    },
-    meta: {
-        domain: "",
-        title: "",
-        description: "",
-        image: "",
-    },
+        iconUrl: 'https://via.placeholder.com/128',
+        backgroundUrl: 'https://via.placeholder.com/720x1280',
+    }
 };
 
 const DefaultImageInfos = [
     {
         link: {
-            twitterUrl: "https://twitter.com/Sakaki333/status/1599055861573353472",
-            pixivUrl: "https://www.pixiv.net/users/52366365"
+            twitterUrl: '#',
+            pixivUrl: '#',
         },
         imageUrls: {
-            completed: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.jpg',
-            rough: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101r.jpg',
-            line: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101l.jpg',
-            timeLapse: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.gif'
+            completed: 'https://via.placeholder.com/720x1280',
+            rough: '',
+            line: '',
+            timeLapse: ''
         },
-        title: "イマドキ女子ココアちゃん",
-        subtitle: "ご注文はうさぎですか？",
-        description: "テスト1です！\nよろしくお願いします！！",
+        title: 'Loading...',
+        subtitle: 'Loading...',
+        description: 'Loading...',
         props: {
-            iconColor: "pink",
+            iconColor: 'pink',
         },
     },
 ]
