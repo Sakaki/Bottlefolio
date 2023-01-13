@@ -26,16 +26,21 @@ const DefaultUserInfo = {
 
 const DefaultImageInfos = [
     {
-        "link": {
-            "twitterUrl": "https://twitter.com/Sakaki333/status/1599055861573353472",
-            "pixivUrl": "https://www.pixiv.net/users/52366365"
+        link: {
+            twitterUrl: "https://twitter.com/Sakaki333/status/1599055861573353472",
+            pixivUrl: "https://www.pixiv.net/users/52366365"
         },
-        "imageUrl": "https://sakaki333.sakura.ne.jp/resources/images/cocoa_20221213.png",
-        "title": "イマドキ女子ココアちゃん",
-        "subtitle": "ご注文はうさぎですか？",
-        "description": "テスト1です！\nよろしくお願いします！！",
-        "props": {
-            "iconColor": "pink",
+        imageUrls: {
+            completed: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.jpg',
+            rough: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101r.jpg',
+            line: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101l.jpg',
+            timeLapse: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.gif'
+        },
+        title: "イマドキ女子ココアちゃん",
+        subtitle: "ご注文はうさぎですか？",
+        description: "テスト1です！\nよろしくお願いします！！",
+        props: {
+            iconColor: "pink",
         },
     },
 ]

@@ -29,7 +29,7 @@ export const ImageCard = ({imageInfo}) => {
                     alt={'Pixiv'}
                 />
             ]}
-            cover={<Thumbnail imageUrl={imageInfo.imageUrl}/>}
+            cover={<Thumbnail imageUrl={imageInfo.imageUrls.completed}/>}
         >
             <Meta
                 avatar={<Avatar style={{backgroundColor: imageInfo.props.iconColor}}/>}
@@ -50,7 +50,12 @@ ImageCard.defaultProps = {
             twitterUrl: 'https://twitter.com/Sakaki333/status/1599055861573353472',
             pixivUrl: 'https://www.pixiv.net/users/52366365',
         },
-        imageUrl: 'https://blog.sakaki333.com/media/images/22/12/11/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%886.png',
+        imageUrls: {
+            completed: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.jpg',
+            rough: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101r.jpg',
+            line: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101l.jpg',
+            timeLapse: 'http://sakaki333.sakura.ne.jp/resources/images/medium/chino_101.gif'
+        },
         title: 'タイトル',
         subtitle: 'サブタイトル',
         props: {

@@ -4,7 +4,7 @@ import {Image} from "../atoms/Image";
 import {Title} from "../mols/Title";
 import {Description} from "../mols/Description";
 import {LinkIcons} from "../mols/LinkIcons";
-import {Pagination, Space} from "antd";
+import {Pagination, Space, Tabs} from "antd";
 import styled from "styled-components";
 
 const DetailContainer = styled(Space)`
@@ -14,6 +14,32 @@ const DetailContainer = styled(Space)`
 `
 
 export const ImageViewArea = ({imageInfo, size, currentIndex, onChange, description}) => {
+    const items = [
+        {
+            key: '1',
+            label: `イラスト`,
+            children: <Image imageUrl={imageInfo.imageUrls.completed}/>,
+        },
+        {
+            key: '2',
+            label: `タイムラプス`,
+            children: <Image imageUrl={imageInfo.imageUrls.timeLapse}/>,
+            disabled: imageInfo.imageUrls.timeLapse === '',
+        },
+        {
+            key: '3',
+            label: `ラフ`,
+            children: <Image imageUrl={imageInfo.imageUrls.rough}/>,
+            disabled: imageInfo.imageUrls.rough === '',
+        },
+        {
+            key: '4',
+            label: `線画`,
+            children: <Image imageUrl={imageInfo.imageUrls.line}/>,
+            disabled: imageInfo.imageUrls.line === '',
+        },
+    ];
+
     return (
         <>
             <DetailContainer direction="vertical" size="middle">
@@ -26,7 +52,7 @@ export const ImageViewArea = ({imageInfo, size, currentIndex, onChange, descript
                         pageSize={1}
                     />
                 </div>
-                <Image imageUrl={imageInfo.imageUrl}/>
+                <Tabs type="card" defaultActiveKey="1" items={items}/>
                 <Title title={imageInfo.title} subtitle={imageInfo.subtitle} iconColor={imageInfo.props.iconColor}/>
                 <Description text={description}/>
                 <LinkIcons
