@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {PortalPage} from "./pages/PortalPage";
 import {Helmet} from "react-helmet";
+import {siteConfig} from "./config";
 
 const DefaultUserInfo = {
     name: 'Loading...',
@@ -44,7 +45,7 @@ function App() {
     const [imageInfos, setImageInfos] = useState(DefaultImageInfos);
 
     useEffect(() => {
-        fetch('https://sakaki333.sakura.ne.jp/resources/json/imageInfos.json', {cache: 'reload'})
+        fetch(siteConfig.imageInfosUrl, {cache: 'reload'})
             .then(res => res.json())
             .then(
                 (result) => {
@@ -52,7 +53,7 @@ function App() {
                     setImageInfos(result);
                 },
             )
-        fetch('https://sakaki333.sakura.ne.jp/resources/json/userInfo.json', {cache: 'reload'})
+        fetch(siteConfig.userInfoUrl, {cache: 'reload'})
             .then(res => res.json())
             .then(
                 (result) => {
@@ -66,14 +67,14 @@ function App() {
         <div className="App">
             <Helmet>
                 <meta charSet="UTF-8"/>
-                <title>イラスト描いたやつ</title>
+                <title></title>
                 <meta name='twitter:card' content='summary_large_image'/>
-                <meta name='twitter:site' content='@Sakaki333'/>
-                <meta name="twitter:creator" content="@Sakaki333"/>
-                <meta name='og:url' content='https://sakaki333.sakura.ne.jp'/>
-                <meta name='og:title' content='Illustrations'/>
-                <meta name='og:description' content='Drawn by @Sakaki333'/>
-                <meta name='og:image' content='https://sakaki333.sakura.ne.jp/resources/profile/ogp_icon.jpg'/>
+                <meta name='twitter:site' content={siteConfig.meta.twitterSite}/>
+                <meta name="twitter:creator" content={siteConfig.meta.twitterCreator}/>
+                <meta name='og:url' content={siteConfig.meta.ogUrl}/>
+                <meta name='og:title' content={siteConfig.meta.ogTitle}/>
+                <meta name='og:description' content={siteConfig.meta.ogDescription}/>
+                <meta name='og:image' content={siteConfig.meta.ogImage}/>
             </Helmet>
             <PortalPage userInfo={userInfo} imageInfos={imageInfos}/>
         </div>
