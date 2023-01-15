@@ -13,7 +13,15 @@ const DetailContainer = styled(Space)`
   margin: auto;
 `
 
-export const ImageViewArea = ({imageInfo, size, currentIndex, onChange, description}) => {
+export const ImageViewArea = ({
+                                  imageInfo,
+                                  size,
+                                  currentIndex,
+                                  currentTabKey,
+                                  onPaginationChanged,
+                                  onTabKeyChanged,
+                                  description
+                              }) => {
     const items = [
         {
             key: '1',
@@ -48,11 +56,16 @@ export const ImageViewArea = ({imageInfo, size, currentIndex, onChange, descript
                         showSizeChanger={false}
                         current={currentIndex}
                         total={size}
-                        onChange={onChange}
+                        onChange={onPaginationChanged}
                         pageSize={1}
                     />
                 </div>
-                <Tabs type="card" defaultActiveKey="1" items={items}/>
+                <Tabs
+                    type="card"
+                    activeKey={currentTabKey}
+                    items={items}
+                    onChange={onTabKeyChanged}
+                />
                 <Title title={imageInfo.title} subtitle={imageInfo.subtitle} iconColor={imageInfo.props.iconColor}/>
                 <Description text={description}/>
                 <LinkIcons
@@ -93,8 +106,5 @@ ImageViewArea.defaultProps = {
     },
     size: 10,
     currentIndex: 1,
-    onChange: () => {
-        console.log('dummy');
-    },
     description: 'テストです！\nよろしくお願いします！！',
 }

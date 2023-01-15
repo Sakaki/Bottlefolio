@@ -7,10 +7,12 @@ import {ImageViewArea} from "./ImageViewArea";
 export const ImageCardList = ({imageInfos}) => {
     const [open, setOpen] = useState(false);
     const [imageIndex, setImageIndex] = useState(0);
+    const [currentTabKey, setCurrentTabKey] = useState('1');
 
     const showDrawer = (index) => {
         setOpen(true);
         setImageIndex(index);
+        setCurrentTabKey('1');
     };
 
     const onClose = () => {
@@ -20,6 +22,11 @@ export const ImageCardList = ({imageInfos}) => {
     const changeImageByPagination = (page) => {
         // pageはindexに対して1大きいので注意
         setImageIndex(page - 1);
+        setCurrentTabKey('1');
+    }
+
+    const onTabKeyChanged = (activeKey) => {
+        setCurrentTabKey(activeKey);
     }
 
     return (
@@ -43,8 +50,10 @@ export const ImageCardList = ({imageInfos}) => {
                 <ImageViewArea
                     imageInfo={imageInfos[imageIndex]}
                     currentIndex={imageIndex + 1}
+                    currentTabKey={currentTabKey}
                     size={imageInfos.length}
-                    onChange={changeImageByPagination}
+                    onPaginationChanged={changeImageByPagination}
+                    onTabKeyChanged={onTabKeyChanged}
                     description={imageInfos[imageIndex].description}
                 />
             </Drawer>
