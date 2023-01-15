@@ -13,7 +13,7 @@ Twitterのモーメントの代わりになればと思い開発してみまし�
 1. **imageInfos.jsonの配置**
 
     サーバーに`imageInfos.json`を配置してください（[サンプル](https://sakaki333.sakura.ne.jp/resources/json/imageInfos.json)）。  
-    TwitterやPixivなどのIDを持っていない場合はリンク部は`#`を指定すればOKです。
+    TwitterやPixivなどのIDを持っていない場合はリンクURLは`#`を指定すればOKです。
 
     ```json
     [
@@ -42,6 +42,7 @@ Twitterのモーメントの代わりになればと思い開発してみまし�
 2. **userInfo.jsonの配置**
 
    サーバーに`userInfos.json`を配置してください（[サンプル](https://sakaki333.sakura.ne.jp/resources/json/userInfo.json)）。
+   links内のブログやGitHub等のIDを持っていない場合、URLは`#`を指定すればOKです。
 
     ```json
     {
@@ -55,14 +56,14 @@ Twitterのモーメントの代わりになればと思い開発してみまし�
             "gitHub": "GitHubのURL"
         },
         "header": {
-            "iconUrl": "https://sakaki333.sakura.ne.jp/resources/profile/icon.jpg",
-            "backgroundUrl": "https://sakaki333.sakura.ne.jp/resources/images/cocoa_6.png"
+            "iconUrl": "https://via.placeholder.com/128",
+            "backgroundUrl": "https://via.placeholder.com/720x1280"
         },
         "meta": {
-            "domain": "sakaki333.sakura.ne.jp",
-            "title": "イラスト描いたやつ",
-            "description": "ごちうさが好きすぎてイラストを始めた人間の顛末。よければ見てやってください。",
-            "image": "https://sakaki333.sakura.ne.jp/resources/profile/icon.jpg"
+            "domain": "yourHomepage.com",
+            "title": "サイトのタイトル",
+            "description": "サイトの説明",
+            "image": "https://via.placeholder.com/128"
         }
     }
     ```
