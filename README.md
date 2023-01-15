@@ -34,14 +34,13 @@ Twitterのモーメントの代わりになればと思い開発してみまし�
             "props": {
                 "iconColor": "テーマカラー（pinkや#fffなどのCSS値が使用可能です）"
             }
-        },
-        ...
+        }
     ]
     ```
 
 2. **userInfo.jsonの配置**
 
-   サーバーに`userInfos.json`を配置してください（[サンプル](https://sakaki333.sakura.ne.jp/resources/json/userInfo.json)）。
+   サーバーに`userInfos.json`を配置してください（[サンプル](https://sakaki333.sakura.ne.jp/resources/json/userInfo.json)）。  
    links内のブログやGitHub等のIDを持っていない場合、URLは`#`を指定すればOKです。
 
     ```json
