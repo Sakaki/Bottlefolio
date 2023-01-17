@@ -9,7 +9,7 @@ const ThumbnailImage = styled.img({
     transform: 'scale(0.99)',
 })
 
-export const Thumbnail = ({imageUrl, alt}) => {
+export const Thumbnail = ({imageUrl, alt, onLoad}) => {
     const ref = useRef(null);
     const [imageHeight, setImageHeight] = useState(0);
 
@@ -24,6 +24,7 @@ export const Thumbnail = ({imageUrl, alt}) => {
                 src={imageUrl}
                 style={{height: imageHeight}}
                 alt={alt}
+                onLoad={onLoad}
             />
         </>
     );

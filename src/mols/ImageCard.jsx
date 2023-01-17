@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Thumbnail} from "../atoms/Thumbnail";
 import {ImageLinkIcon} from "../atoms/ImageLinkIcon";
-import {Avatar, Card} from "antd";
+import {Avatar, Card, Skeleton} from "antd";
 import PixivIcon from '../assets/icon/pixiv_icon.svg'
 import TwitterIcon from '../assets/icon/twitter_icon.svg'
 import Meta from "antd/es/card/Meta";
@@ -14,6 +14,8 @@ const ImageCardItem = styled(Card)`
 `
 
 export const ImageCard = ({imageInfo}) => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+
     return (
         <ImageCardItem
             hoverable
@@ -29,13 +31,16 @@ export const ImageCard = ({imageInfo}) => {
                     alt={'Pixiv'}
                 />
             ]}
-            cover={<Thumbnail imageUrl={imageInfo.imageUrls.completed}/>}
+            cover={<Thumbnail imageUrl={imageInfo.imageUrls.completed} alt={'image'}
+                              onLoad={() => setImageLoaded(true)}/>}
         >
-            <Meta
-                avatar={<Avatar style={{backgroundColor: imageInfo.props.iconColor}}/>}
-                title={imageInfo.title}
-                description={imageInfo.subtitle}
-            />
+            <Skeleton loading={!imageLoaded} avatar active>
+                <Meta
+                    avatar={<Avatar style={{backgroundColor: imageInfo.props.iconColor}}/>}
+                    title={imageInfo.title}
+                    description={imageInfo.subtitle}
+                />
+            </Skeleton>
         </ImageCardItem>
     );
 };
