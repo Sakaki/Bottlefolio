@@ -3,8 +3,8 @@ import {Header} from "../mols/Header";
 import {Profile} from "../orgs/Profile";
 import styled from 'styled-components';
 import {Divider} from "antd";
-import {ImageCardList} from "../orgs/ImageCardList";
 import PropTypes from "prop-types";
+import {ContentsContext} from "../orgs/ContentsContext";
 
 const Container = styled.div({
     maxWidth: '600px',
@@ -33,7 +33,7 @@ export const PortalPage = ({userInfo, imageInfos}) => {
                         Illustrations
                     </Divider>
                     <Works>
-                        <ImageCardList imageInfos={imageInfos}/>
+                        <ContentsContext imageInfos={imageInfos}/>
                     </Works>
                 </InnerContainer>
             </Container>

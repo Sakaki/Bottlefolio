@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
-import {Image} from "../atoms/Image";
 import {Title} from "../mols/Title";
 import {Description} from "../mols/Description";
 import {LinkIcons} from "../mols/LinkIcons";
-import {Pagination, Space, Tabs} from "antd";
+import {Pagination, Space} from "antd";
 import styled from "styled-components";
+import {ImageTab} from "../mols/ImageTab";
+import {SetImageIndexContext, SetTabKeyContext} from "./ContentsContext";
 
 const DetailContainer = styled(Space)`
   display: flex;
@@ -13,40 +14,15 @@ const DetailContainer = styled(Space)`
   margin: auto;
 `
 
-export const ImageViewArea = ({
-                                  imageInfo,
-                                  size,
-                                  currentIndex,
-                                  currentTabKey,
-                                  onPaginationChanged,
-                                  onTabKeyChanged,
-                                  description
-                              }) => {
-    const items = [
-        {
-            key: '1',
-            label: `イラスト`,
-            children: <Image imageUrl={imageInfo.imageUrls.completed}/>,
-        },
-        {
-            key: '2',
-            label: `タイムラプス`,
-            children: <Image imageUrl={imageInfo.imageUrls.timeLapse}/>,
-            disabled: imageInfo.imageUrls.timeLapse === '',
-        },
-        {
-            key: '3',
-            label: `ラフ`,
-            children: <Image imageUrl={imageInfo.imageUrls.rough}/>,
-            disabled: imageInfo.imageUrls.rough === '',
-        },
-        {
-            key: '4',
-            label: `線画`,
-            children: <Image imageUrl={imageInfo.imageUrls.line}/>,
-            disabled: imageInfo.imageUrls.line === '',
-        },
-    ];
+export const ImageViewArea = ({imageInfo, size, currentIndex, description}) => {
+    const setTabKey = useContext(SetTabKeyContext);
+    const setImageIndex = useContext(SetImageIndexContext);
+
+    const onPaginationChanged = (page) => {
+        // pageはindexに対して1大きいので注意
+        setImageIndex(page - 1);
+        setTabKey('1');
+    }
 
     return (
         <>
@@ -60,12 +36,7 @@ export const ImageViewArea = ({
                         pageSize={1}
                     />
                 </div>
-                <Tabs
-                    type="card"
-                    activeKey={currentTabKey}
-                    items={items}
-                    onChange={onTabKeyChanged}
-                />
+                <ImageTab imageInfo={imageInfo}/>
                 <Title title={imageInfo.title} subtitle={imageInfo.subtitle} iconColor={imageInfo.props.iconColor}/>
                 <Description text={description}/>
                 <LinkIcons
