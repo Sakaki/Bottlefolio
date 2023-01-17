@@ -1,7 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {createContext, useEffect, useReducer, useState} from "react";
 import {PortalPage} from "./pages/PortalPage";
 import {Helmet} from "react-helmet";
 import {siteConfig} from "./config";
+import {ImageTabsReducer, initialTabState} from "./mols/ImageTabs/ImageTabsReducer";
+
+const TabContext = createContext(null);
+const TabDispatchContext = createContext(null);
 
 const DefaultUserInfo = {
     name: 'Loading...',
@@ -43,6 +47,7 @@ const DefaultImageInfos = [
 function App() {
     const [userInfo, setUserInfo] = useState(DefaultUserInfo);
     const [imageInfos, setImageInfos] = useState(DefaultImageInfos);
+    const [state, dispatch] = useReducer(ImageTabsReducer, initialTabState);
 
     useEffect(() => {
         fetch(siteConfig.imageInfosUrl, {cache: 'reload'})
