@@ -9,7 +9,7 @@ const HeaderDiv = styled.div({
     maxHeight: '45vh',
     position: 'relative',
     borderBottom: '1px solid',
-    backgroundColor: 'lightgray',
+    borderColor: 'lightgray',
 });
 
 const UserAvatar = styled(Avatar)`
@@ -44,7 +44,9 @@ export const Header = ({backgroundUrl, iconUrl}) => {
                 <Spin tip="Loading" spinning={loading} size="large">
                     <EyeCatchImage
                         src={backgroundUrl}
-                        onLoad={() => setLoading(false)}
+                        onLoad={() => {
+                            setTimeout(() => setLoading(false), 500);
+                        }}
                         onChange={() => setLoading(true)}
                     />
                 </Spin>
