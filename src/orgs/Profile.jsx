@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from "prop-types";
 import {ExternalLinks} from "../mols/ExternalLinks";
+import {Skeleton} from "antd";
 
 const UserName = styled.p({
     fontSize: '150%',
@@ -15,19 +16,21 @@ const Description = styled.p({
 });
 
 export const Profile = ({userInfo}) => {
-    const lineBrakedDescriptions = userInfo.description.split(/(\n)/).map((item) => {
+    const lineBrakedDescriptions = userInfo.description ? userInfo.description.split(/(\n)/).map((item) => {
         return (
             <p>{item}</p>
         )
-    });
+    }) : '';
 
     return (
         <>
             <UserName style={{marginTop: 50}}>{userInfo.name}</UserName>
             <ExternalLinks links={userInfo.links}/>
-            <Description>
-                {lineBrakedDescriptions}
-            </Description>
+            <Skeleton loading={userInfo.description === undefined}>
+                <Description>
+                    {lineBrakedDescriptions}
+                </Description>
+            </Skeleton>
         </>
     )
 }

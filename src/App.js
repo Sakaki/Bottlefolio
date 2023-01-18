@@ -5,7 +5,7 @@ import {siteConfig} from "./config";
 
 const DefaultUserInfo = {
     name: 'Loading...',
-    description: 'Loading...',
+    description: undefined,
     links: {
         blog: '#',
         twitter: '#',
@@ -14,8 +14,8 @@ const DefaultUserInfo = {
         gitHub: '#',
     },
     header: {
-        iconUrl: 'https://via.placeholder.com/128',
-        backgroundUrl: 'https://via.placeholder.com/720x1280',
+        iconUrl: 'https://via.placeholder.com/128/CCC/CCC',
+        backgroundUrl: 'https://via.placeholder.com/720x1280/CCC/CCC',
     }
 };
 
@@ -26,7 +26,7 @@ const DefaultImageInfos = [
             pixivUrl: '#',
         },
         imageUrls: {
-            completed: 'https://via.placeholder.com/720x1280',
+            completed: 'https://via.placeholder.com/720x1280/CCC/CCC',
             rough: '',
             line: '',
             timeLapse: ''

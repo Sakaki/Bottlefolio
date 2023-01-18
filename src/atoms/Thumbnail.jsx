@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
+import {Spin} from "antd";
 
 const ThumbnailImage = styled.img({
     width: '100%',
@@ -9,9 +10,10 @@ const ThumbnailImage = styled.img({
     transform: 'scale(0.99)',
 })
 
-export const Thumbnail = ({imageUrl, alt, onLoad}) => {
+export const Thumbnail = ({imageUrl, alt}) => {
     const ref = useRef(null);
     const [imageHeight, setImageHeight] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setImageHeight(ref.current ? ref.current.offsetWidth : 0);
@@ -19,13 +21,16 @@ export const Thumbnail = ({imageUrl, alt, onLoad}) => {
 
     return (
         <>
-            <ThumbnailImage
-                ref={ref}
-                src={imageUrl}
-                style={{height: imageHeight}}
-                alt={alt}
-                onLoad={onLoad}
-            />
+            <Spin tip="Loading" spinning={loading} size="large">
+                <ThumbnailImage
+                    ref={ref}
+                    src={imageUrl}
+                    style={{height: imageHeight}}
+                    alt={alt}
+                    onChange={() => setLoading(true)}
+                    onLoad={() => setLoading(false)}
+                />
+            </Spin>
         </>
     );
 };

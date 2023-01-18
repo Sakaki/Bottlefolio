@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Thumbnail} from "../atoms/Thumbnail";
 import {ImageLinkIcon} from "../atoms/ImageLinkIcon";
@@ -14,8 +14,6 @@ const ImageCardItem = styled(Card)`
 `
 
 export const ImageCard = ({imageInfo}) => {
-    const [imageLoaded, setImageLoaded] = useState(false);
-
     return (
         <ImageCardItem
             hoverable
@@ -31,10 +29,9 @@ export const ImageCard = ({imageInfo}) => {
                     alt={'Pixiv'}
                 />
             ]}
-            cover={<Thumbnail imageUrl={imageInfo.imageUrls.completed} alt={'image'}
-                              onLoad={() => setImageLoaded(true)}/>}
+            cover={<Thumbnail imageUrl={imageInfo.imageUrls.completed} alt={'image'}/>}
         >
-            <Skeleton loading={!imageLoaded} avatar active>
+            <Skeleton loading={imageInfo.title === 'Loading...'} avatar active>
                 <Meta
                     avatar={<Avatar style={{backgroundColor: imageInfo.props.iconColor}}/>}
                     title={imageInfo.title}
