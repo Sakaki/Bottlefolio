@@ -14,8 +14,8 @@ const DefaultUserInfo = {
         gitHub: '#',
     },
     header: {
-        iconUrl: 'https://via.placeholder.com/128/CCC/CCC',
-        backgroundUrl: 'https://via.placeholder.com/720x1280/CCC/CCC',
+        iconUrl: 'https://via.placeholder.com/128/FFF/FFF',
+        backgroundUrl: 'https://via.placeholder.com/720x1280/FFF/FFF',
     }
 };
 
