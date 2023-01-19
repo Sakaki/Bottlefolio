@@ -23,7 +23,6 @@ const UserAvatarSkeleton = styled(Skeleton.Avatar)`
   position: absolute;
   left: calc(50% - 32px);
   bottom: -32px;
-  background-color: lightgray;
 `
 
 const EyeCatchImage = styled.img({
@@ -41,18 +40,20 @@ export const Header = ({backgroundUrl, iconUrl}) => {
     return (
         <>
             <HeaderDiv>
-                <Spin tip="Loading" spinning={loading} size="large">
-                    <EyeCatchImage
-                        src={backgroundUrl}
-                        onLoad={() => {
-                            setTimeout(() => setLoading(false), 500);
-                        }}
-                        onChange={() => setLoading(true)}
-                    />
+                <Spin tip="Loading" spinning={loading} delay={100} size="large">
+                    {backgroundUrl !== undefined &&
+                        <EyeCatchImage
+                            src={backgroundUrl}
+                            onLoad={() => {
+                                setTimeout(() => setLoading(false), 500);
+                            }}
+                            onChange={() => setLoading(true)}
+                        />
+                    }
                 </Spin>
-                <UserAvatar src={iconUrl} shape="square" size={64}/>
-                {loading &&
-                    <UserAvatarSkeleton active shape="square" size={64}/>
+                {loading
+                    ? <UserAvatarSkeleton active shape="circle" size={64}/>
+                    : <UserAvatar src={iconUrl} size={64}/>
                 }
             </HeaderDiv>
         </>

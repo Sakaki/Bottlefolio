@@ -21,15 +21,19 @@ export const Thumbnail = ({imageUrl, alt}) => {
 
     return (
         <>
-            <Spin tip="Loading" spinning={loading} size="large">
-                <ThumbnailImage
-                    ref={ref}
-                    src={imageUrl}
-                    style={{height: imageHeight}}
-                    alt={alt}
-                    onChange={() => setLoading(true)}
-                    onLoad={() => setLoading(false)}
-                />
+            <Spin tip="Loading" spinning={loading} delay={100} size="large">
+                {imageUrl !== undefined &&
+                    <ThumbnailImage
+                        ref={ref}
+                        src={imageUrl}
+                        style={{height: imageHeight}}
+                        alt={alt}
+                        onChange={() => setLoading(true)}
+                        onLoad={() => {
+                            setTimeout(() => setLoading(false), 500);
+                        }}
+                    />
+                }
             </Spin>
         </>
     );

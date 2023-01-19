@@ -14,8 +14,8 @@ const DefaultUserInfo = {
         gitHub: '#',
     },
     header: {
-        iconUrl: 'https://via.placeholder.com/128/FFF/FFF',
-        backgroundUrl: 'https://via.placeholder.com/720x1280/FFF/FFF',
+        iconUrl: undefined,
+        backgroundUrl: undefined,
     }
 };
 
@@ -26,7 +26,7 @@ const DefaultImageInfos = [
             pixivUrl: '#',
         },
         imageUrls: {
-            completed: 'https://via.placeholder.com/720x1280/CCC/CCC',
+            completed: undefined,
             rough: '',
             line: '',
             timeLapse: ''
