@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {Avatar, Skeleton, Spin} from "antd";
 import PropTypes from "prop-types";
@@ -35,7 +35,14 @@ const EyeCatchImage = styled.img({
 });
 
 export const Header = ({backgroundUrl, iconUrl}) => {
+    const ref = useRef(null);
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (ref.current && ref.current.complete) {
+            setLoading(false);
+        }
+    }, []);
 
     return (
         <>
@@ -43,6 +50,7 @@ export const Header = ({backgroundUrl, iconUrl}) => {
                 <Spin tip="Loading" spinning={loading} delay={100} size="large">
                     {backgroundUrl !== undefined &&
                         <EyeCatchImage
+                            ref={ref}
                             src={backgroundUrl}
                             onLoad={() => {
                                 setTimeout(() => setLoading(false), 500);

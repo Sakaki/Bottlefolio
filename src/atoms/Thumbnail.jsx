@@ -16,12 +16,19 @@ export const Thumbnail = ({imageUrl, alt}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setImageHeight(ref.current ? ref.current.offsetWidth : 0);
+        imageLoaded();
     }, []);
+
+    const imageLoaded = () => {
+        setImageHeight(ref.current ? ref.current.offsetWidth : 0);
+        if (ref.current && ref.current.complete) {
+            setLoading(false);
+        }
+    }
 
     return (
         <>
-            <Spin tip="Loading" spinning={loading} delay={100} size="large">
+            <Spin tip="Loading" spinning={loading} size="large">
                 {imageUrl !== undefined &&
                     <ThumbnailImage
                         ref={ref}
@@ -30,7 +37,7 @@ export const Thumbnail = ({imageUrl, alt}) => {
                         alt={alt}
                         onChange={() => setLoading(true)}
                         onLoad={() => {
-                            setTimeout(() => setLoading(false), 500);
+                            setTimeout(imageLoaded, 500);
                         }}
                     />
                 }
