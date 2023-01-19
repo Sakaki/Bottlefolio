@@ -39,10 +39,16 @@ export const Header = ({backgroundUrl, iconUrl}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (ref.current && ref.current.complete) {
-            setLoading(false);
-        }
+        imageLoaded();
     }, []);
+
+    const imageLoaded = () => {
+        if (ref.current && ref.current.complete) {
+            setTimeout(() => {
+                setLoading(false);
+            }, 500);
+        }
+    }
 
     return (
         <>
@@ -52,9 +58,7 @@ export const Header = ({backgroundUrl, iconUrl}) => {
                         <EyeCatchImage
                             ref={ref}
                             src={backgroundUrl}
-                            onLoad={() => {
-                                setTimeout(() => setLoading(false), 500);
-                            }}
+                            onLoad={imageLoaded}
                             onChange={() => setLoading(true)}
                         />
                     }

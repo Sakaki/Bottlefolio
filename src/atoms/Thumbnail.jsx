@@ -22,7 +22,9 @@ export const Thumbnail = ({imageUrl, alt}) => {
     const imageLoaded = () => {
         setImageHeight(ref.current ? ref.current.offsetWidth : 0);
         if (ref.current && ref.current.complete) {
-            setLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 500);
         }
     }
 
@@ -36,9 +38,7 @@ export const Thumbnail = ({imageUrl, alt}) => {
                         style={{height: imageHeight}}
                         alt={alt}
                         onChange={() => setLoading(true)}
-                        onLoad={() => {
-                            setTimeout(imageLoaded, 500);
-                        }}
+                        onLoad={imageLoaded}
                     />
                 }
             </Spin>
