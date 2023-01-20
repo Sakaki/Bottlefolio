@@ -27,7 +27,8 @@ export const ImageTab = ({imageInfo}) => {
 
     useEffect(() => {
         setTabKey('1');
-    }, [])
+        carouselRef.current.goTo(0);
+    }, [imageInfo])
 
     const visibleItems = imageKeyRefs.filter((refItem) => imageInfo.imageUrls[refItem.refName] !== '');
     const tabItems = visibleItems.map((refItem, index) => {
