@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Image} from "../atoms/Image";
 import {Carousel, Tabs} from "antd";
 
@@ -24,6 +24,10 @@ const imageKeyRefs = [
 export const ImageTab = ({imageInfo}) => {
     const carouselRef = useRef(null);
     const [tabKey, setTabKey] = useState('1');
+
+    useEffect(() => {
+        setTabKey('1');
+    }, [])
 
     const visibleItems = imageKeyRefs.filter((refItem) => imageInfo.imageUrls[refItem.refName] !== '');
     const tabItems = visibleItems.map((refItem, index) => {
