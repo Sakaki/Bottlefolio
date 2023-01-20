@@ -25,16 +25,11 @@ export const ImageTab = ({imageInfo}) => {
     const carouselRef = useRef(null);
     const [tabKey, setTabKey] = useState('1');
 
-    const onItemChange = (targetKey) => {
-        setTabKey((targetKey + 1).toString());
-        carouselRef.current.goTo(targetKey);
-    }
-
     const visibleItems = imageKeyRefs.filter((refItem) => imageInfo.imageUrls[refItem.refName] !== '');
     const tabItems = visibleItems.map((refItem, index) => {
         return {
             key: (index + 1).toString(),
-            label: refItem.text
+            label: refItem.text,
         }
     });
     const carouselItems = visibleItems.map((refItem, index) =>
@@ -49,13 +44,16 @@ export const ImageTab = ({imageInfo}) => {
                 type="card"
                 activeKey={tabKey}
                 items={tabItems}
-                onChange={(tabKeyStr) => onItemChange(parseInt(tabKeyStr) - 1)}
+                onChange={(tabKeyStr) => {
+                    setTabKey(tabKeyStr);
+                    carouselRef.current.goTo(parseInt(tabKeyStr) - 1)
+                }}
             />
             <Carousel
                 ref={carouselRef}
-                dots={false}
                 infinite={false}
-                afterChange={(currentKey) => onItemChange(currentKey)}
+                speed={0}
+                afterChange={(currentKey) => setTabKey((currentKey + 1).toString())}
             >
                 {carouselItems}
             </Carousel>
