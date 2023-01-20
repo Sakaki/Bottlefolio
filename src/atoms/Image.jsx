@@ -15,6 +15,7 @@ export const Image = ({imageUrl}) => {
         <>
             <Spin tip="Loading" spinning={loading} size="large">
                 <StyledImage
+                    preview={false}
                     width={'100%'}
                     src={imageUrl}
                     onLoad={() => setLoading(false)}

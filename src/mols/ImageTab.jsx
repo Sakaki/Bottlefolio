@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Image} from "../atoms/Image";
 import {Carousel, Tabs} from "antd";
+import {CaretLeftOutlined, CaretRightOutlined} from "@ant-design/icons";
 
 const imageKeyRefs = [
     {
@@ -55,6 +56,9 @@ export const ImageTab = ({imageInfo}) => {
                 }}
             />
             <Carousel
+                arrows
+                prevArrow={<CaretLeftOutlined />}
+                nextArrow={<CaretRightOutlined/>}
                 ref={carouselRef}
                 infinite={false}
                 speed={0}
