@@ -6,7 +6,7 @@ import {LinkIcons} from "../mols/LinkIcons";
 import {Pagination, Space} from "antd";
 import styled from "styled-components";
 import {ImageTab} from "../mols/ImageTab";
-import {SetImageIndexContext, SetTabKeyContext} from "./ContentsContext";
+import {SetImageIndexContext} from "./ContentsContext";
 
 const DetailContainer = styled(Space)`
   display: flex;
@@ -15,13 +15,11 @@ const DetailContainer = styled(Space)`
 `
 
 export const ImageViewArea = ({imageInfo, size, currentIndex, description}) => {
-    const setTabKey = useContext(SetTabKeyContext);
     const setImageIndex = useContext(SetImageIndexContext);
 
     const onPaginationChanged = (page) => {
         // pageはindexに対して1大きいので注意
         setImageIndex(page - 1);
-        setTabKey('1');
     }
 
     return (

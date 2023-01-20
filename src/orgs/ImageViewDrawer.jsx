@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
 import {ImageViewArea} from "./ImageViewArea";
 import {Drawer} from "antd";
-import {SetImageIndexContext, SetShowDrawerContext, SetTabKeyContext} from "./ContentsContext";
+import {SetImageIndexContext, SetShowDrawerContext} from "./ContentsContext";
 
 export const ImageViewDrawer = ({imageInfos, imageIndex, showDrawer}) => {
-    const setTabKey = useContext(SetTabKeyContext);
     const setOpen = useContext(SetShowDrawerContext);
     const setImageIndex = useContext(SetImageIndexContext);
 
@@ -15,7 +14,6 @@ export const ImageViewDrawer = ({imageInfos, imageIndex, showDrawer}) => {
     const changeImageByPagination = (page) => {
         // pageはindexに対して1大きいので注意
         setImageIndex(page - 1);
-        setTabKey('1');
     }
 
     return (

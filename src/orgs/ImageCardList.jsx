@@ -2,17 +2,15 @@ import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import {ImageCard} from "../mols/ImageCard";
 import {Space} from 'antd';
-import {SetImageIndexContext, SetShowDrawerContext, SetTabKeyContext} from "./ContentsContext";
+import {SetImageIndexContext, SetShowDrawerContext} from "./ContentsContext";
 
 export const ImageCardList = ({imageInfos}) => {
     const setOpen = useContext(SetShowDrawerContext);
-    const setTabKey = useContext(SetTabKeyContext);
     const setImageIndex = useContext(SetImageIndexContext);
 
     const onImageCardClicked = (index) => {
         setOpen(true);
         setImageIndex(index);
-        setTabKey('1');
     };
 
     return (
