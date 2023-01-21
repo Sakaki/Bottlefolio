@@ -65,7 +65,8 @@ function App() {
         <div className="App">
             <Helmet>
                 <meta charSet="UTF-8"/>
-                <title></title>
+                <title>{siteConfig.meta.title}</title>
+                <meta name="description" content={siteConfig.meta.ogDescription}/>
                 <meta name='twitter:card' content='summary_large_image'/>
                 <meta name='twitter:site' content={siteConfig.meta.twitterSite}/>
                 <meta name="twitter:creator" content={siteConfig.meta.twitterCreator}/>
