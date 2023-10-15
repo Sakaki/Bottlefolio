@@ -11,7 +11,6 @@ const ThumbnailImage = styled.img({
 
 export const Thumbnail = ({imageUrl, alt}) => {
     const ref = useRef(null);
-    const [imageHeight, setImageHeight] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,7 +18,6 @@ export const Thumbnail = ({imageUrl, alt}) => {
     }, []);
 
     const imageLoaded = () => {
-        setImageHeight(ref.current ? ref.current.offsetWidth : 0);
         if (ref.current && ref.current.complete) {
             setTimeout(() => {
                 setLoading(false);
