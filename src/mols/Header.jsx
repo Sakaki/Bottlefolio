@@ -30,7 +30,6 @@ const EyeCatchImage = styled.img({
     height: '400px',
     maxHeight: '45vh',
     objectFit: 'cover',
-    objectPosition: '0 20%',
     overflow: 'hidden',
 });
 
