@@ -12,7 +12,7 @@ const UserName = styled.p({
 const Description = styled.p({
     marginTop: 60,
     textAlign: 'center',
-    color: 'darkgray',
+    color: '#555',
 });
 
 export const Profile = ({userInfo}) => {
