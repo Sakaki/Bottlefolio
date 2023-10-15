@@ -7,7 +7,6 @@ const ThumbnailImage = styled.img({
     width: '100%',
     objectFit: 'cover',
     objectPosition: '0 5%',
-    transform: 'scale(0.99)',
 })
 
 export const Thumbnail = ({imageUrl, alt}) => {
@@ -35,7 +34,6 @@ export const Thumbnail = ({imageUrl, alt}) => {
                     <ThumbnailImage
                         ref={ref}
                         src={imageUrl}
-                        style={{height: imageHeight}}
                         alt={alt}
                         onChange={() => setLoading(true)}
                         onLoad={imageLoaded}

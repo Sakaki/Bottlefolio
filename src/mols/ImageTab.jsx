@@ -47,7 +47,6 @@ export const ImageTab = ({imageInfo}) => {
     return (
         <>
             <Tabs
-                type="card"
                 activeKey={tabKey}
                 items={tabItems}
                 onChange={(tabKeyStr) => {

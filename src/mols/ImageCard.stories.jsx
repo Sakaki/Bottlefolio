@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {ImageCard} from "./ImageCard";
 
 export default {
@@ -18,7 +17,7 @@ Example1.args = {
         },
         imageUrls: {
             completed: 'https://via.placeholder.com/720x1280',
-            rough: '',
+            rough: 'https://via.placeholder.com/720x1080',
             line: '',
             timeLapse: ''
         },

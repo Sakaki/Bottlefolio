@@ -1,11 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Thumbnail} from "../atoms/Thumbnail";
-import {ImageLinkIcon} from "../atoms/ImageLinkIcon";
-import {Avatar, Card, Skeleton} from "antd";
-import PixivIcon from '../assets/icon/pixiv_icon.svg'
-import TwitterIcon from '../assets/icon/twitter_icon.svg'
-import Meta from "antd/es/card/Meta";
+import {Card} from "antd";
 import styled from "styled-components";
 
 const ImageCardItem = styled(Card)`
@@ -13,31 +9,57 @@ const ImageCardItem = styled(Card)`
   max-width: 550px;
 `
 
+const imageKeyRefs = [
+    {
+        refName: 'completed',
+        text: 'イラスト',
+    },
+    {
+        refName: 'rough',
+        text: 'ラフ',
+    },
+    {
+        refName: 'line',
+        text: '線画',
+    },
+    {
+        refName: 'timeLapse',
+        text: 'タイムラプス',
+    },
+]
+
 export const ImageCard = ({imageInfo}) => {
+    const [activeTabKey1, setActiveTabKey1] = useState('completed');
+    const contentList = {
+        completed: <Thumbnail imageUrl={imageInfo.imageUrls.completed} alt={'image'}/>,
+        rough: <Thumbnail imageUrl={imageInfo.imageUrls.rough} alt={'image'}/>,
+        line: <Thumbnail imageUrl={imageInfo.imageUrls.line} alt={'image'}/>,
+        timeLapse: <Thumbnail imageUrl={imageInfo.imageUrls.timeLapse} alt={'image'}/>,
+    };
+    const visibleItems = imageKeyRefs.filter((refItem) => imageInfo.imageUrls[refItem.refName] !== '');
+    const tabList = visibleItems.map((refItem, index) => {
+        return {
+            key: refItem.refName,
+            tab: refItem.text,
+        }
+    });
+
+    const onTab1Change = (key) => {
+        setActiveTabKey1(key);
+    };
+
     return (
         <ImageCardItem
             hoverable
-            actions={[
-                <ImageLinkIcon
-                    svgIcon={TwitterIcon}
-                    url={imageInfo.link.twitterUrl}
-                    alt={'Twitter'}
-                />,
-                <ImageLinkIcon
-                    svgIcon={PixivIcon}
-                    url={imageInfo.link.pixivUrl}
-                    alt={'Pixiv'}
-                />
-            ]}
-            cover={<Thumbnail imageUrl={imageInfo.imageUrls.completed} alt={'image'}/>}
+            tabList={tabList}
+            activeTabKey={activeTabKey1}
+            onTabChange={onTab1Change}
+            bodyStyle={{padding: "0"}}
+            tabProps={{
+                size: 'middle',
+            }}
         >
-            <Skeleton loading={imageInfo.title === 'Loading...'} avatar active>
-                <Meta
-                    avatar={<Avatar style={{backgroundColor: imageInfo.props.iconColor}}/>}
-                    title={imageInfo.title}
-                    description={imageInfo.subtitle}
-                />
-            </Skeleton>
+            {contentList[activeTabKey1]}
         </ImageCardItem>
     );
 };
@@ -54,7 +76,7 @@ ImageCard.defaultProps = {
         },
         imageUrls: {
             completed: 'https://via.placeholder.com/720x1280',
-            rough: '',
+            rough: 'https://via.placeholder.com/720x1080',
             line: '',
             timeLapse: ''
         },
