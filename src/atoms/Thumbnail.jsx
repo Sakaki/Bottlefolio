@@ -7,6 +7,7 @@ const ThumbnailImage = styled.img({
     width: '100%',
     objectFit: 'cover',
     objectPosition: '0 5%',
+    borderRadius: "0 0 8px 8px",
 })
 
 export const Thumbnail = ({imageUrl, alt}) => {

@@ -7,6 +7,8 @@ import styled from "styled-components";
 const ImageCardItem = styled(Card)`
   margin: auto;
   max-width: 550px;
+  box-shadow: 3px 3px 18px 3px rgba(208, 216, 243, 0.8);
+  padding: 0;
 `
 
 const imageKeyRefs = [
@@ -15,12 +17,12 @@ const imageKeyRefs = [
         text: 'イラスト',
     },
     {
-        refName: 'rough',
-        text: 'ラフ',
-    },
-    {
         refName: 'line',
         text: '線画',
+    },
+    {
+        refName: 'rough',
+        text: 'ラフ',
     },
     {
         refName: 'timeLapse',
@@ -50,11 +52,10 @@ export const ImageCard = ({imageInfo}) => {
 
     return (
         <ImageCardItem
-            hoverable
             tabList={tabList}
             activeTabKey={activeTabKey1}
             onTabChange={onTab1Change}
-            bodyStyle={{padding: "0"}}
+            bodyStyle={{marginBottom: "-8px", padding: "0"}}
             tabProps={{
                 size: 'middle',
             }}
