@@ -70,13 +70,13 @@ export const ImageCard = ({imageInfo}) => {
             {contentList[activeTabKey1]}
             <LinkFloatButton
                 icon={<TwitterOutlined />}
-                type="primary"
+                type="normal"
                 style={{ right: "80px" }}
                 href={imageInfo.twitterUrl}
             />
             <LinkFloatButton
                 description="Pixiv"
-                type="primary"
+                type="normal"
                 style={{ right: "20px" }}
                 href={imageInfo.pixivUrl}
             />
