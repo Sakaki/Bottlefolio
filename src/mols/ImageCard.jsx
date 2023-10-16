@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Thumbnail} from "../atoms/Thumbnail";
-import {Card} from "antd";
+import {Card, FloatButton} from "antd";
 import styled from "styled-components";
+import {TwitterOutlined} from "@ant-design/icons";
 
 const ImageCardItem = styled(Card)`
   margin: auto;
   max-width: 550px;
   box-shadow: 3px 3px 18px 3px rgba(208, 216, 243, 0.8);
   padding: 0;
+`
+
+const LinkFloatButton = styled(FloatButton)`
+    position: absolute;
+    bottom: 20px;
+    opacity: 0.7;
 `
 
 const imageKeyRefs = [
@@ -61,6 +68,18 @@ export const ImageCard = ({imageInfo}) => {
             }}
         >
             {contentList[activeTabKey1]}
+            <LinkFloatButton
+                icon={<TwitterOutlined />}
+                type="primary"
+                style={{ right: "80px" }}
+                href={imageInfo.twitterUrl}
+            />
+            <LinkFloatButton
+                description="Pixiv"
+                type="primary"
+                style={{ right: "20px" }}
+                href={imageInfo.pixivUrl}
+            />
         </ImageCardItem>
     );
 };
