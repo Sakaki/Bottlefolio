@@ -15,7 +15,7 @@ const ImageCardItem = styled(Card)`
 const LinkFloatButton = styled(FloatButton)`
     position: absolute;
     bottom: 20px;
-    opacity: 0.7;
+    opacity: 0.5;
 `
 
 const imageKeyRefs = [
@@ -70,13 +70,13 @@ export const ImageCard = ({imageInfo}) => {
             {contentList[activeTabKey1]}
             <LinkFloatButton
                 icon={<TwitterOutlined />}
-                type="normal"
+                type="primary"
                 style={{ right: "80px" }}
                 href={imageInfo.twitterUrl}
             />
             <LinkFloatButton
                 description="Pixiv"
-                type="normal"
+                type="primary"
                 style={{ right: "20px" }}
                 href={imageInfo.pixivUrl}
             />

@@ -10,6 +10,7 @@ const HeaderDiv = styled.div({
     position: 'relative',
     borderBottom: '1px solid',
     borderColor: 'lightgray',
+    boxShadow: '0px 8px 14px -4px rgba(208, 216, 243, 0.8)',
 });
 
 const UserAvatar = styled(Avatar)`
