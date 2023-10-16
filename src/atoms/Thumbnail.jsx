@@ -10,7 +10,7 @@ const ThumbnailImage = styled.img({
     borderRadius: "0 0 8px 8px",
 })
 
-export const Thumbnail = ({imageUrl, twitterUrl, pixivUrl, alt}) => {
+export const Thumbnail = ({imageUrl, alt}) => {
     const ref = useRef(null);
     const [loading, setLoading] = useState(true);
 
