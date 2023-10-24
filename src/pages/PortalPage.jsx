@@ -25,8 +25,8 @@ const Works = styled.div({
 export const PortalPage = ({userInfo, imageInfos}) => {
     return (
         <>
+            <Header iconUrl={userInfo.header.iconUrl} backgroundUrl={userInfo.header.backgroundUrl}/>
             <Container>
-                <Header iconUrl={userInfo.header.iconUrl} backgroundUrl={userInfo.header.backgroundUrl}/>
                 <Profile userInfo={userInfo}/>
                 <InnerContainer>
                     <Divider orientation="left" orientationMargin="0">
