@@ -72,13 +72,13 @@ export const ImageCard = ({imageInfo}) => {
                 icon={<TwitterOutlined />}
                 type="primary"
                 style={{ right: "80px" }}
-                href={imageInfo.twitterUrl}
+                onClick={() => window.open(imageInfo.twitterUrl, "_blank")}
             />
             <LinkFloatButton
                 description="Pixiv"
                 type="primary"
                 style={{ right: "20px" }}
-                href={imageInfo.pixivUrl}
+                onClick={() => window.open(imageInfo.pixivUrl, "_blank")}
             />
         </ImageCardItem>
     );
